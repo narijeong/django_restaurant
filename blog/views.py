@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Post, Category
+from taggit.models import Tag
+
 
 # Create your views here.
 def post_list(request):
@@ -13,10 +15,26 @@ def post_list(request):
 def post_detail(request, id):
     post_detail = Post.objects.get(id=id)
     categories = Category.objects.all()
+    tags = Tag.objects.all()
 
     context = {
         'post_detail': post_detail,
-        'categories': categories
+        'categories': categories,
+        'tags': tags,
     }
 
     return render(request, 'Post/post_detail.html', context)
+
+def post_by_tag(request, tag):
+    post_by_tag = Post.objects.filter(tags__name__in=[tag])
+    context = {
+        'post_list': post_by_tag
+    }
+    return render(request, 'Post/post_list.html', context)
+
+def post_by_category(request, category):
+    post_by_category = Post.objects.filter(category__category_name=category)
+    context = {
+        'post_list': post_by_category
+    }
+    return render(request, 'Post/post_list.html', context)
