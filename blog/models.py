@@ -11,6 +11,7 @@ class Post(models.Model):
     created = models.DateTimeField(default=timezone.now)
     # tags =
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
+    image = models.ImageField(upload_to='blog/', blank=True, null=True)
 
     class Meta:
         verbose_name = 'post'
