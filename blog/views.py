@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import Post, Category
+from .models import Post, Category, Comment
 from taggit.models import Tag
+from .forms import CommentForm
 
 
 # Create your views here.
@@ -16,11 +17,25 @@ def post_detail(request, id):
     post_detail = Post.objects.get(id=id)
     categories = Category.objects.all()
     tags = Tag.objects.all()
+    comments = Comment.objects.filter(post=post_detail)
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.user = request.user
+            new_comment.post = post_detail
+            new_comment.save()
+
+    else:
+        comment_form = CommentForm()
 
     context = {
         'post_detail': post_detail,
         'categories': categories,
         'tags': tags,
+        'comments': comments,
+        'comment_form': comment_form,
     }
 
     return render(request, 'Post/post_detail.html', context)
