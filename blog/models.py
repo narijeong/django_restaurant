@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
 
 # Create your models here.
 class Post(models.Model):
@@ -9,9 +10,9 @@ class Post(models.Model):
     # when deleing autho, delete a post too (cascade delete)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(default=timezone.now)
-    # tags =
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
     image = models.ImageField(upload_to='blog/', blank=True, null=True)
+    tags = TaggableManager(blank=True)
 
     class Meta:
         verbose_name = 'post'
