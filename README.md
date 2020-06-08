@@ -8,8 +8,9 @@ Blog
 - Tagging
 - Category
 - Filtering by tag and category
-Done ---------------
+- Comment
 - Pagination
+-------------------
 - Blog search
 About Us
 Contact Form
