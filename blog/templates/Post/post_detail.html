@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bootstrap4 %}
+
 {% block body %}
       
       <div class="main-wrap">
@@ -54,8 +56,12 @@
                     <h3 class="mb-5">Leave a comment</h3>
                     <form method="POST" class="p-5 bg-light">
                       {% csrf_token %}
-                      {{comment_form}}
-                      <button type="submit" class="btn btn-primary">Leave comment</button>
+                      {% bootstrap_form comment_form %}
+                      {% buttons %}
+                        <button type="submit" class="btn btn-primary">
+                          Leave Comment
+                        </button>
+                      {% endbuttons %}
                     </form>
                   </div>
                 </div>
@@ -78,12 +84,6 @@
                     {% endfor %}
                   </div>
                 </div>
-                <div class="sidebar-box">
-                  <img src="img/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-                  <h3>About The Author</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-                  <p><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
-                </div>
 
                 <div class="sidebar-box">
                   <h3>Tag Cloud</h3>
@@ -94,10 +94,6 @@
                   </div>
                 </div>
 
-                <div class="sidebar-box">
-                  <h3>Paragraph</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-                </div>
               </div>
 
             </div>
