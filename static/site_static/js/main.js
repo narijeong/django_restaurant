@@ -1,12 +1,17 @@
 AOS.init({
   duration: 600
 });
-  
 
+$("document").ready(function() {
+  setTimeout(function() {
+      $("#Breakfast-tab").trigger('click');
+  },10);
+});
+  
 (function($) {
 
-	'use strict';
-
+  'use strict';
+  
   $(window).stellar({
     responsive: false,
     verticalOffset: 60,
