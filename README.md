@@ -1,5 +1,5 @@
 # restaurant
-This is a Django website project for a restaurant brusines.
+This is a Django website project for a restaurant business.
 
 Features
 Meal menu
@@ -15,5 +15,18 @@ About Us
 Contact Form
 
 To do
-Buy gift card
+Connect to PostgrSql
+Deploy to AWS
+Buy gift card function
+
+
+Python
+Django
+Javascript
+HTML/CSS
+Bootstrap
+AWS
+PostgreSql
+
+
 
