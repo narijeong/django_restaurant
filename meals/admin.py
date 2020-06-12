@@ -4,9 +4,9 @@ from django.contrib import admin
 from .models import Meals, Category    
 
 class MealsAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price']
+    list_display = ['name', 'category', 'price']
 
-admin.site.register(Meals)
+admin.site.register(Meals, MealsAdmin)
 admin.site.register(Category)
 
 
