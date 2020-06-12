@@ -40,10 +40,10 @@
                     {% for comment in comments %}
                     <li class="comment">
                       <div class="vcard bio">
-                        <img src="img/person_1.jpg" alt="Image placeholder">
+                        <img src="{% static 'site_static/img/anon.jpg' %}" alt="Image placeholder">
                       </div>
                       <div class="comment-body">
-                        <h3>{{comment.user}}</h3>
+                        <h3>{{comment.name}}</h3>
                         <div class="meta">{{comment.created}}</div>
                         <p>{{comment.content}}</p>
                       </div>

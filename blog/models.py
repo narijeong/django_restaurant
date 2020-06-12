@@ -32,7 +32,7 @@ class Category(models.Model):
         return self.category_name
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.TextField()
     created = models.DateTimeField(default=timezone.now)
