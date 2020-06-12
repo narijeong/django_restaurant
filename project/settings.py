@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'i_%o-a6^uwt1)om5kk&2d=6(mq$v8+_qu%+gpiejphl&&mf2#q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -85,8 +85,11 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'restaurant', # DB name
+        'USER': 'postgres',
+        'PASSWORD': 'n94403319',
+        'HOST': 'localhost',
     }
 }
 
@@ -135,8 +138,8 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # absolute place where files are saved
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # stout dev purpose
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
