@@ -15,11 +15,11 @@ def send_email(request):
 
         try:
             send_mail(
-                name + ' ' + phone, 
+                name + ' ' + phone + ' ' + email,
                 message, 
-                email, 
+                'narijeong@icloud.com', 
                 ['narijeong@icloud.com']
-            ) # subject, message, to, from
+            ) # subject, message, from, to
             
         except BadHeaderError:
             return HttpResponse('Invalid Header')
